@@ -1,58 +1,55 @@
-name: Secure DevSecOps Pipeline 
 
-on: 
-  push: 
-    branches: 
-      - master 
+name: Secure DevSecOps Pipeline
 
-strategy: 
- matrix: 
-   node-version: 
-     - 18
- 
-jobs: 
-  build_and_package: 
-    name: BUILD-JOB 
-    runs-on: ubuntu-slim 
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
 
-    permissions: 
-      actions: read 
-      contents: read 
-      security-events: write # Required to upload findings to the Security tab 
+jobs:
+  build_and_package:
+    name: BUILD-JOB
+    runs-on: ubuntu-slim
 
-    strategy: 
-      fail-fast: false 
-      matrix: 
-        language: ['javascript-typescript'] 
+    strategy:
+      matrix:
+        node-version:
+          - 22
 
-    steps: 
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
 
-      - name: Checkout Code 
-        uses: actions/checkout@v4 
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js 
-        uses: actions/setup-node@v4 
-        with: 
-          node-version: ${{ matrix.node-version }} 
- 
-      - name: Cache Dependencies 
-        uses: actions/cache@v5 
-        with: 
-          path: ~/.npm 
-          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }} 
-          restore-keys: | 
-             ${{ runner.os }}-node-${{ matrix.node-version }}- 
- 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
 
-      - name: BUILD 
-        run: npm install 
+      - name: Cache Dependencies
+        uses: actions/cache@v5
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ matrix.node-version }}-
 
-      - name: TEST 
-        run: echo "code is tested!" 
+      - name: Install Dependencies
+        run: npm install
 
-      - name: Artifact upload 
-        uses: actions/upload-artifact@v7 
-        with: 
-          name: artifact-1 
-          path: | 
-            package* 
+      - name: Test
+        run: echo "code is tested!"
+
+      - name: Artifact Upload
+        uses: actions/upload-artifact@v7
+        with:
+          name: artifact-${{ runner.os }}-node-${{ matrix.node-version }}
+          path: |
+            package*
+
