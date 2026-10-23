@@ -56,7 +56,7 @@ jobs:
             package*
 
       - name: Deployment
-        run: echo "app is deployed"
+        run: echo "app is deployed
 
       - name: Rollback
         if: failure()
