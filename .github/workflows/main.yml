@@ -5,6 +5,12 @@ on:
     branches: 
       - master 
 
+strategy: 
+ matrix: 
+   node-version: 
+     - 18
+
+     
 jobs: 
   build_and_package: 
     name: BUILD-JOB 
@@ -25,13 +31,19 @@ jobs:
       - name: Checkout Code 
         uses: actions/checkout@v4 
 
+      - name: Setup Node.js 
+        uses: actions/setup-node@v4 
+        with: 
+          node-version: ${{ matrix.node-version }} 
+ 
       - name: Cache Dependencies 
         uses: actions/cache@v5 
         with: 
           path: ~/.npm 
-          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }} 
+          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }} 
           restore-keys: | 
-             ${{ runner.os }}- 
+             ${{ runner.os }}-node-${{ matrix.node-version }}- 
+ 
 
       - name: BUILD 
         run: npm install 
