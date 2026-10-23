@@ -11,6 +11,8 @@ on:
 jobs:
   build_and_package:
     name: BUILD-JOB
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+
     runs-on: ubuntu-slim
 
     strategy:
