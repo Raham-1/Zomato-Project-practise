@@ -1,24 +1,28 @@
-
 name: Secure DevSecOps Pipeline
 
 on:
   push:
     branches:
       - master
-      - main
   workflow_dispatch:
 
 jobs:
   build_and_package:
     name: BUILD-JOB
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-
-    runs-on: ubuntu-slim
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
         node-version:
+          - 18
+          - 20
           - 22
+        language:
+          - javascript-typescript
 
     permissions:
       actions: read
@@ -55,9 +59,9 @@ jobs:
           path: |
             package*
 
-      - name: Deployment
-        run: echo "app is deployed
+      - name: Deploy
+        run: echo "my code is deployed"
 
       - name: Rollback
         if: failure()
-        run: echo "app is deployed"
+        run: echo "rollback is done"
