@@ -32,7 +32,7 @@ jobs:
         run: echo "code is tested" 
 
       - name: Deploy 
-        run: echo "code is deploy" 
+        run: echo "code is deploy
 
       - name: Rollback
         if: failure()
