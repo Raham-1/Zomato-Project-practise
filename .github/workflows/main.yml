@@ -36,4 +36,4 @@ jobs:
 
       - name: Rollback
         if: failure()
-        run: echo "rollback scripit is executed: rollback done"
+        run: echo "rollback scripit is executed rollback done"
