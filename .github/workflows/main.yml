@@ -8,6 +8,7 @@ on:
 
 jobs: 
   build: 
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     runs-on: ubuntu-slim 
     steps: 
       - name: Checkout Code 
