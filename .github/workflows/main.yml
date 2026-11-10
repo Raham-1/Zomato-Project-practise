@@ -35,6 +35,4 @@ jobs:
       - name: Deploy 
         run: echo "code is deploy
 
-      - name: Rollback
-        if: failure()
-        run: echo "rollback scripit is executed rollback done"
+
