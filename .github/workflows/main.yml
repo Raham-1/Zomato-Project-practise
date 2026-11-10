@@ -19,6 +19,17 @@ jobs:
           node-version: '20' # Specify the major version or exact semantic version
           cache: 'npm'       # Automatically cache npm dependencies for faster builds
 
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: 'javascript-typescript'
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+      
       - name: Cache Dependencies 
         uses: actions/cache@v4 
         with:
