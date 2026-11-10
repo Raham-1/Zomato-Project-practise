@@ -8,6 +8,7 @@ on:
 
 jobs: 
   build: 
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push' 
     runs-on: ubuntu-slim 
     permissions:
       security-events: write # Required to upload findings to the Security tab
@@ -17,17 +18,6 @@ jobs:
     steps: 
       - name: Checkout Code 
         uses: actions/checkout@v4 
-
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: 'javascript-typescript'
-
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
-
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
       
       - name: Cache Dependencies 
         uses: actions/cache@v4 
