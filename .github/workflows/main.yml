@@ -9,8 +9,9 @@ on:
   workflow_dispatch:  
 
 permissions:
-  contents: read
-  copilot-requests: write
+  contents: write
+  pull-requests: write
+  
   
 jobs: 
   build: 
