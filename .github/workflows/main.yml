@@ -30,9 +30,15 @@ jobs:
       - name: Build 
         run: npm install 
 
-
+  test:
+     runs-on: ubuntu-slim
+     steps:
       - name: Test 
-        run: echo "code is tested 
+        run: echo "code is tested"
 
+        
+  security:
+    runs-on: ubuntu-slim
+    steps:
       - name: secure 
         run: echo "security checks performed" 
