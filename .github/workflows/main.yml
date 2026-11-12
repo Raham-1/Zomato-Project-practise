@@ -16,7 +16,7 @@ permissions:
   
 jobs: 
   build: 
-    runs-on: ubuntu-slim 
+    runs-on: self-hosted 
     steps: 
       - name: Checkout Code 
         uses: actions/checkout@v4 
