@@ -1,71 +1,103 @@
-# Getting Started with Create React App
+# Zomato Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based restaurant discovery and food ordering landing page inspired by Zomato. This project recreates the look and feel of a modern food delivery platform with sections for restaurant cards, trending collections, city highlights, promotional calls-to-action, and a footer with app information.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+This application is designed as a front-end clone of Zomato's homepage experience. It includes:
 
-### `npm start`
+- A responsive header/navigation bar
+- Restaurant and food category cards
+- Collections section for popular dining experiences
+- City-based browsing blocks
+- Promotional app CTA section
+- Account/app info panels
+- Footer with site links and branding
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React.js
+- Create React App
+- Sass (SCSS)
+- Material UI components
+- JavaScript
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Modern single-page UI inspired by Zomato
+- Reusable component-based structure
+- Clean and responsive layout
+- Styled cards and sections for food discovery
+- Built for rapid front-end prototyping and UI design iteration
 
-### `npm run build`
+## Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+.
+├── public/
+├── src/
+│   ├── components/
+│   ├── App.js
+│   ├── app.scss
+│   ├── index.js
+│   └── ...
+├── Dockerfile
+├── package.json
+├── package-lock.json
+├── README.md
+└── .github/
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+Make sure you have the following installed:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Node.js (v18 or later recommended)
+- npm
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Run the app locally
 
-## Learn More
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This will start the development server and open the app in your browser at:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```text
+http://localhost:3000
+```
 
-### Code Splitting
+### Production build
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm run build
+```
 
-### Analyzing the Bundle Size
+This creates an optimized production build in the `build` folder.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Docker Support
 
-### Making a Progressive Web App
+A `Dockerfile` is included for containerized runs if you want to build and run the project in a Docker environment.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Example:
 
-### Advanced Configuration
+```bash
+docker build -t zomato-clone .
+docker run -p 3000:3000 zomato-clone
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Notes
 
-### Deployment
+This project is primarily a UI clone and front-end practice repository. It focuses on visual structure and user experience rather than full backend integration or live restaurant data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## License
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Zomato-Clone
+This project is for educational and portfolio demonstration purposes.
